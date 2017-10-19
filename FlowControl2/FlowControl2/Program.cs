@@ -29,13 +29,16 @@ namespace FlowControl2
                                  case "2":
                         Repeattentimes();
                         break;
-                                 case "0":
+                                 case "3":
+                        Thirdword();
+                        break;
+                                case "0":
                                      keepGoing = false;
-                                     break;
-                                     default:
-                    Console.WriteLine("Incorrect choice \nPlease input again");
-                    Console.ReadKey();
-                                     break;
+                        break;
+                       default:
+                                    Console.WriteLine("Incorrect choice \nPlease input again");
+                                    Console.ReadKey();
+                       break;
                                   }
                 
            }
@@ -95,7 +98,7 @@ namespace FlowControl2
 
             Console.WriteLine("Please input straing with atleast 3 words");
             string input = Console.ReadLine();
-            string[] arrayofwords = input.Split(' ');
+            string[] arrayofwords = input.Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries);
             if (arrayofwords.Length < 3)
             {
                 Console.WriteLine("Please enter atleast 3 words");
