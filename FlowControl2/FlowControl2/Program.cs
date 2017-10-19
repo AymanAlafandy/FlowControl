@@ -11,5 +11,10 @@ namespace FlowControl2
         static void Main(string[] args)
         {
         }
+
+        public static void MainMenu()
+        {
+
+        }
     }
 }
