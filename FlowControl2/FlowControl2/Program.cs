@@ -20,6 +20,7 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("this is the menu.");
                 Console.WriteLine("input a num to chose function");
+                Console.WriteLine("3)ThirdWord ");
                 Console.WriteLine("2)RepeatTenTimes");
                 Console.WriteLine("1)cinema");
                 Console.WriteLine("0)Exite");
@@ -31,6 +32,9 @@ namespace FlowControl2
                         break;
                     case "2":
                         RepeatTenTimes();
+                        break;
+                    case "3":
+                        ThirdWord();
                         break;
                     case "0":
                         KeepGoing = false;
@@ -60,7 +64,7 @@ namespace FlowControl2
             else
             {
                 Console.WriteLine("standard price:120kr");
-            }  
+            }
 
         }
 
@@ -69,11 +73,24 @@ namespace FlowControl2
             Console.Clear();
             Console.WriteLine("what do you want to repeated:");
             string input = Console.ReadLine();
-            for(int i=0;i<10;i++)
+            for (int i = 0; i < 10; i++)
             {
                 Console.Write((i + 1) + ". " + input + ", ");
             }
             Console.ReadLine();
         }
+
+
+        public static void ThirdWord()
+        {
+            Console.Clear();
+            Console.WriteLine("please enter a sentence with at least three words:");
+            string input = Console.ReadLine();
+            string[] arrayOfWords = input.Split(' ');
+            Console.WriteLine(arrayOfWords[2]);
+            Console.ReadLine();
+        }
+    }     
+        
     }
-}
+
