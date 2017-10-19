@@ -13,6 +13,7 @@ namespace FlowControl2
         static void Main(string[] args)
         {
             MainMenu();
+            //Taleb has a good mustach
         }
 
         public static void MainMenu()
