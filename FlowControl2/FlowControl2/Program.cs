@@ -20,6 +20,10 @@ namespace FlowControl2
                 string input = Console.ReadLine();
                                 switch (input)
                                     {
+                         case "1":
+                        Adolescentorsenior();
+                        break;
+                   
                                      case "0":
                                      keepGoing = false;
                                      break;
@@ -30,6 +34,26 @@ namespace FlowControl2
                                   }
                 
            }
+        }
+        public static void Adolescentorsenior()
+        {
+            Console.Write("What is your age");
+            string input = Console.ReadLine();
+            int age = int.Parse(input);
+
+            if (age < 20)
+            {
+                Console.WriteLine("Kid Deal : 80 kr");
+            }
+            else if (age > 64)
+            {
+                Console.WriteLine("Senior citizen discount : 90 kr");
+                            }
+            else 
+            {
+                Console.WriteLine("Standar prise : 120kr");
+            }
+            Console.ReadLine();
         }
       
     }
