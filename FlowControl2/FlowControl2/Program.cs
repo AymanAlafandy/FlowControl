@@ -18,6 +18,7 @@ namespace FlowControl2
                 Console.WriteLine("Input number to choose function");
                 Console.WriteLine("1. Cinema");
                 Console.WriteLine("2. Repeater");
+                Console.WriteLine("3. Third word");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                                 switch (input)
@@ -74,6 +75,19 @@ namespace FlowControl2
             }
 
             Console.ReadLine();
+        }
+        public static void Thirdword()
+        {
+
+            Console.WriteLine("Please input straing with atleast 3 words");
+            string input = Console.ReadLine();
+            string[] arrayofwords = input.Split(' ');
+            Console.WriteLine(arrayofwords[2]);
+            Console.ReadLine();
+
+
+
+
         }
     }
 }
