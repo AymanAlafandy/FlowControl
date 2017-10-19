@@ -16,7 +16,8 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("This is the main menu.");
                 Console.WriteLine("Input number to choose function");
-                Console.WriteLine(");
+                Console.WriteLine("1. Cinema");
+                Console.WriteLine("2. Repeater");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                                 switch (input)
@@ -41,7 +42,7 @@ namespace FlowControl2
         public static void Adolescentorsenior()
         {
             Console.Clear();
-            Console.Write("What is your age");
+            Console.Write("What is your age : ");
             string input = Console.ReadLine();
             int age = int.Parse(input);
 
@@ -73,9 +74,6 @@ namespace FlowControl2
             }
 
             Console.ReadLine();
-
-
-
         }
     }
 }
