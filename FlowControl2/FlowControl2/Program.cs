@@ -21,10 +21,14 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("this is the main menu.");
                 Console.WriteLine("Input a number to chooce Function");
+                Console.WriteLine("1) Cinema");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                 switch (input)
                 {
+                    case "1":
+                        AdolecentOrSenior();
+                        break;
                     case "0":
                         keepGoing = false;
                         break;
@@ -38,7 +42,23 @@ namespace FlowControl2
 
         public static void AdolecentOrSenior()
         {
+            Console.Write("What is your age?: ");
+            string input = Console.ReadLine();
+            int age = int.Parse(input);
 
+            if(age < 20)
+            {
+                Console.WriteLine("Kids Deal: 80kr");
+            }
+            else if(age > 64)
+            {
+                Console.WriteLine("Senior Citizen Discount: 90kr");
+            }
+            else
+            {
+                Console.WriteLine("Standard Prize: 120kr");
+            }
+            Console.ReadLine();
         }
     }
 }
