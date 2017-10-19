@@ -10,12 +10,6 @@ namespace FlowControl2
     {
         static void Main(string[] args)
         {
-
-            // added background color to our console.
-            Console.BackgroundColor = ConsoleColor.DarkGray;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.White;
-
             MainMenu();
         }
 
@@ -24,18 +18,15 @@ namespace FlowControl2
             bool keepGoing = true;
             while (keepGoing)
             {
-
                 Console.Clear();
-                Console.WriteLine("This is the main menu");
-                Console.WriteLine("Input a number to choose a funcion");
+                Console.WriteLine("This is the main menu.");
+                Console.WriteLine("Input a number to chooce function");
                 Console.WriteLine("1) Cinema");
                 Console.WriteLine("2) Repeat ten times");
-                Console.WriteLine("3) Third Word Finder");
+                Console.WriteLine("3) Third Word");
                 Console.WriteLine("0) Exit");
-
                 string input = Console.ReadLine();
-
-                switch (input) // Switch-case belongs to while
+                switch (input)
                 {
                     case "1":
                         AdolescentOrSenior();
@@ -47,10 +38,10 @@ namespace FlowControl2
                         ThirdWord();
                         break;
                     case "0":
-                        keepGoing = true;
+                        keepGoing = false;
                         break;
                     default:
-                        Console.WriteLine("Incorrect input\nTry again ");
+                        Console.WriteLine("Incorrect input\nTry Again");
                         Console.ReadKey();
                         break;
                 }
@@ -59,82 +50,97 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
+            string input;
+            uint age = 0; // using uint to allow the int to even accept minus numbers
 
 
+            bool correctAge = true;
 
-            int age = 0;
-            Console.Write("Age:  ");
-
-            // used While loop instead of Do-While loop
-            while (!int.TryParse(Console.ReadLine(), out age))
+            do
             {
+                Console.Clear();
+                if (!correctAge)
+                {
+                    Console.WriteLine("Please try again\n");
+                }
 
-                Console.WriteLine("Oops! Wrong Age Please Try Again ");
+                Console.Write("What is your age?: ");
+                input = Console.ReadLine();
+                correctAge = uint.TryParse(input, out age);
 
-                Console.Write("Age:  ");
-            }
+                if (age < 0 || age > 200)
+                {
+                    correctAge = false;
+                }
 
+            } while (!correctAge);
 
 
 
             if (age < 20)
             {
-                Console.WriteLine("Kids deal : 80kr");
+                Console.WriteLine("Kid deal: 80kr");
             }
             else if (age > 64)
             {
-                Console.WriteLine("Senior Citizen Discount : 90kr");
+                Console.WriteLine("Senior Citizen Discount: 90kr");
             }
             else
             {
-                Console.WriteLine("Standard Price : 120kr");
+                Console.WriteLine("Standard Price: 120kr");
             }
             Console.ReadLine();
         }
 
         public static void RepeatTenTimes()
         {
-
-
-
-
-
-            Console.WriteLine("");
-            Console.WriteLine("What do you want to repeat 10x ?:");
-            Console.WriteLine("");
-
-            Console.Write("Text:  ");
-
-
-
-
-
-            string input = Console.ReadLine();
-            for (int i = 0; i < 10; i++)
+            Console.Clear();
+            string input;
+            do
             {
-                Console.Write((i + 1) + " . " + input + ", ");
-            }
+                Console.Write("What do you want repeated?: ");
+                input = Console.ReadLine().Trim();
+                if (input.Length > 0)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        Console.Write((i + 1) + ". " + input + ", ");
+                    }
+                    Console.Write("10. " + input);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("You must want to repeat something..\n");
+                }
+            } while (input.Length < 1);
+
             Console.ReadLine();
         }
 
         public static void ThirdWord()
         {
             Console.Clear();
-            Console.WriteLine("Please enter a sentence with at least 3 words");
-            string input = Console.ReadLine();
+            bool longEnough = true;
+            do
+            {
+                Console.WriteLine("Please enter a sentence with at least three words");
+                string input = Console.ReadLine();
 
-            string[] arrayOfWords = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
-            if (arrayOfWords.Length < 3)
-            {
-                Console.WriteLine("The sentence need to be at least three words long");
-            }
-            else
-            {
-                Console.WriteLine(arrayOfWords[2]);
-            }
-            Console.ReadLine();
+                string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                longEnough = (arrayOfWords.Length > 2);
+                if (!longEnough)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The sentence needs to be at least three words long\n");
+                }
+                else
+                {
+                    Console.Write("The third word is: ");
+                    Console.WriteLine(arrayOfWords[2]);
+                }
+                Console.ReadLine();
+            } while (!longEnough);
         }
-
-
     }
 }
