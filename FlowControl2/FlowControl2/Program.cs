@@ -10,6 +10,12 @@ namespace FlowControl2
     {
         static void Main(string[] args)
         {
+
+            // added background color to our console.
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+
             MainMenu();
         }
 
@@ -18,6 +24,7 @@ namespace FlowControl2
             bool keepGoing = true;
             while (keepGoing)
             {
+
                 Console.Clear();
                 Console.WriteLine("This is the main menu");
                 Console.WriteLine("Input a number to choose a funcion");
@@ -31,16 +38,13 @@ namespace FlowControl2
                         break;
                     default:
                         Console.WriteLine("Incorrect input\nTry again ");
-                        Console.ReadLine();
+                        Console.ReadKey();
                         break;
-
-
                 }
-
             }
         }
 
-
+     
 
     }
 }
