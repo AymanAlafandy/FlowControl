@@ -50,10 +50,24 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.Clear();
-            Console.Write("What is your age?: ");
-            string input = Console.ReadLine();
-            int age = int.Parse(input);
+            string input;
+            uint age = 0;
+            bool correctAge = true;
+            do
+            {
+                Console.Clear();
+                if (!correctAge)
+                {
+                    Console.WriteLine("Please try again\n");
+                }
+                Console.Write("What is your age?: ");
+                input = Console.ReadLine();
+                correctAge = uint.TryParse(input, out age);
+                if (age < 0 || age > 200)
+                {
+                    correctAge = false;
+                }
+            } while (!correctAge);
 
             if (age < 20)
             {
@@ -73,23 +87,52 @@ namespace FlowControl2
         public static void RepeatTenTimes()
         {
             Console.Clear();
-            Console.Write("What do you want repeated?: ");
-            string input = Console.ReadLine();
-            for (int i = 0; i < 10; i++)
+            string input;
+            do
             {
-                Console.Write((i + 1) + ". " + input + ", ");
-            }
+                Console.Write("What do you want repeated?: ");
+                input = Console.ReadLine().Trim();
+                if (input.Length > 0)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        Console.Write((i + 1) + ". " + input + ", ");
+                    }
+                    Console.Write("10. " + input);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("You must want to repeat something..\n");
+                }
+            } while (input.Length < 1);
+
             Console.ReadLine();
         }
 
-        public static void ThirdWord ()
+        public static void ThirdWord()
         {
             Console.Clear();
-            Console.WriteLine("Please enter a sentence with at least three words");
-            string input = Console.ReadLine();
-            string[] arrayOfWords = input.Split(' ');
-            Console.WriteLine(arrayOfWords[2]);
-            Console.ReadLine();
+            bool longEnough = true;
+            do
+            {
+                Console.WriteLine("Please enter a sentence with at least three words");
+                string input = Console.ReadLine();
+
+                string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                longEnough = (arrayOfWords.Length > 2);
+                if (!longEnough)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The sentence needs to be at least three words long\n");
+                }
+                else
+                {
+                    Console.Write("The third word is: ");
+                    Console.WriteLine(arrayOfWords[2]);
+                }
+                Console.ReadLine();
+            } while (!longEnough);
         }
     }
 }
