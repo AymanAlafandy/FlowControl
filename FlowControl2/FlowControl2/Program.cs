@@ -10,7 +10,7 @@ namespace FlowControl2
     {
         static void Main(string[] args)
         {
-                 MainMenu();
+            MainMenu();
         }
 
         public static void MainMenu()
@@ -21,10 +21,18 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("This is the main menu");
                 Console.WriteLine("Input of number to choose function");
+                Console.WriteLine("1) Cinema");
+                Console.WriteLine("2) RepeatTenTime");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                 switch (input)
                 {
+                    case "1":
+                        AdolescentOrSenior();
+                        break;
+                    case "2":
+                        AdolescentOrSenior();
+                        break;
                     case "0":
                         keepGoing = false;
                         break;
@@ -36,10 +44,41 @@ namespace FlowControl2
             }
         }
 
-                public static void AdolescentOrSenior()
-              {
+        public static void AdolescentOrSenior()
+        {
+            Console.Write("What is your age?: ");
+            string input = Console.ReadLine();
+            int age = int.Parse(input);
 
-               }
+            if (age < 20)
+            {
+                Console.WriteLine("Kid Deal: 80kr");
             }
+            else if (age > 64)
+            {
+                Console.WriteLine("Senior Citizen Discount: 90kr");
+            }
+            else
+            {
+                Console.WriteLine("Standard Price: 120kr");
+            }
+            Console.ReadLine();
         }
-    
+
+
+        public static void RepeatTenTime()
+        {
+            Console.Clear();
+            Console.Write("What do you want repeated");
+            string input = Console.ReadLine();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine((i + 1) + " " + input + ",");
+            }
+
+            Console.ReadLine();
+        }
+
+    }
+}
+
