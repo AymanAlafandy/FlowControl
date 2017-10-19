@@ -50,18 +50,19 @@ namespace FlowControl2
 
         public static void AdolecentOrSenior()
         {
-            string input = Console.ReadLine();
+            string input;
             uint age = 0;
             bool correctAge = true;
             do
             {
+            Console.Clear();
                 if(!correctAge)
                 {
                     Console.WriteLine("Please try again");
                 }
-            Console.Clear();
             Console.Write("What is your age?: ");
-            correctAge = uint.TryParse(input, out age)
+            input = Console.ReadLine();
+            correctAge = uint.TryParse(input, out age);
             }
             while(!correctAge);
 
