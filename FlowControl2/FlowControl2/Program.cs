@@ -50,10 +50,24 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.Write("What is your age?: ");
-            string input = Console.ReadLine();
-            int age = 0;
-            int.TryParse(input, out age); // If user type an age in character 
+            string input;
+            uint age = 0;
+            bool correctAge = true;
+            do {
+                 Console.Clear();
+                if(!correctAge) // Checking if this it not frist time we doing loop
+                    {
+
+                    Console.WriteLine("Please try again\n");
+                }
+                 Console.Write("What is your age?: ");
+                 input = Console.ReadLine();
+                correctAge = uint.TryParse(input, out age);
+                if(age < 0 || age < 100)
+                {
+                    //
+                }
+            }while( !correctAge); // If user type an age in character 
             
 
             if (age < 20)
@@ -89,9 +103,10 @@ namespace FlowControl2
             Console.Clear();
             Console.WriteLine("Please enter a sentence with at least three words");
             string input = Console.ReadLine();
-            string[] arrayOfWords = input.Split(' ');
+            string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if(arrayOfWords.Length < 3)
             {
+                Console.Clear();
                 Console.WriteLine("The sentence needs to be at least three words long");
             }
             else
