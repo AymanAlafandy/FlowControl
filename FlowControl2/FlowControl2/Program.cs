@@ -23,6 +23,7 @@ namespace FlowControl2
                 Console.WriteLine("0) Exit");
                 Console.WriteLine("1) Cinema");
                 Console.WriteLine("2) Repeat Ten Times");
+                Console.WriteLine("3) Third Word");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -34,6 +35,9 @@ namespace FlowControl2
                         break;
                     case "2":
                         RepeatTenTimes();
+                        break;
+                    case "3":
+                        ThirdWord();
                         break;
                     default:
                         Console.WriteLine("Incorrect input\nTry Again");
@@ -48,9 +52,28 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.WriteLine("What is your Age?:");
-            string input = Console.ReadLine();
-            int age = int.Parse(input);
+
+            string input;
+            uint age = 0;
+            bool correctAge = true;
+            do
+            {
+                Console.Clear();
+                if (!correctAge)
+                {
+                    Console.WriteLine("Please try again\n");
+                } 
+                
+                Console.WriteLine("What is your Age?:");
+                input = Console.ReadLine();
+                correctAge = uint.TryParse(input, out age);
+                if(age<0 || age > 110)
+                {
+                    correctAge = false;
+                }
+            } while (!uint.TryParse(input, out age));
+            // int.TryParse(input, out age);
+            //int age = int.Parse(input);
             if (age < 20)
             {
                 Console.WriteLine("Kids Deal:80kr");
@@ -71,13 +94,57 @@ namespace FlowControl2
         {
             Console.Clear();
             Console.WriteLine("What do you want repeated?: ");
-            string input = Console.ReadLine();
-            for(int i = 0; i < 10; i++)
+            string input;
+            do
             {
-                Console.WriteLine((i+1)+". "+input+", ");
-            }
+                Console.WriteLine();
+                input = Console.ReadLine().Trim();
+                if (input.Length > 0)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        Console.WriteLine((i + 1) + ". " + input + ", ");
+                    }
+                    Console.WriteLine("10. " + input);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("You must want to repeat something\n ");
+                }
+            } while (input.Length < 1);
+         
             Console.ReadLine();
         }
+
+        public static void ThirdWord()
+        {
+            Console.Clear();
+            bool longEnough = true;
+            do
+            {
+                Console.WriteLine("Please enter a sentence with atleast three words");
+                string input = Console.ReadLine();
+
+                string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                longEnough = (arrayOfWords.Length > 2);
+                if (!longEnough)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The sentence needs to be atleast three words long");
+                }
+                else
+                {
+                    Console.WriteLine("The third word is: ");
+                    Console.WriteLine(arrayOfWords[2]);
+                }
+                Console.ReadLine();
+            } while (!longEnough);
+
+            
+
+        }
+
 
 
 
