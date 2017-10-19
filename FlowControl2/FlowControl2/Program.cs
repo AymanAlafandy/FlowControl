@@ -20,6 +20,7 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("this is the menu.");
                 Console.WriteLine("input a num to chose function");
+                Console.WriteLine("2)RepeatTenTimes");
                 Console.WriteLine("1)cinema");
                 Console.WriteLine("0)Exite");
                 string input = Console.ReadLine();
@@ -27,6 +28,9 @@ namespace FlowControl2
                 {
                     case "1":
                         AdolescentOrSenior();
+                        break;
+                    case "2":
+                        RepeatTenTimes();
                         break;
                     case "0":
                         KeepGoing = false;
@@ -58,6 +62,18 @@ namespace FlowControl2
                 Console.WriteLine("standard price:120kr");
             }  
 
+        }
+
+        public static void RepeatTenTimes()
+        {
+            Console.Clear();
+            Console.WriteLine("what do you want to repeated:");
+            string input = Console.ReadLine();
+            for(int i=0;i<10;i++)
+            {
+                Console.Write((i + 1) + ". " + input + ", ");
+            }
+            Console.ReadLine();
         }
     }
 }
