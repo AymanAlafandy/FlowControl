@@ -52,12 +52,18 @@ namespace FlowControl2
         {
             string input = Console.ReadLine();
             uint age = 0;
+            bool correctAge = true;
             do
-            { 
+            {
+                if(!correctAge)
+                {
+                    Console.WriteLine("Please try again");
+                }
             Console.Clear();
             Console.Write("What is your age?: ");
+            correctAge = uint.TryParse(input, out age)
             }
-            while(!uint.TryParse(input, out age));
+            while(!correctAge);
 
             if(age < 20)
             {
