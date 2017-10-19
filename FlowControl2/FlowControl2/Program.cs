@@ -82,7 +82,14 @@ namespace FlowControl2
             Console.WriteLine("Please input straing with atleast 3 words");
             string input = Console.ReadLine();
             string[] arrayofwords = input.Split(' ');
+            if (arrayofwords.Length < 3)
+            {
+                Console.WriteLine("Please enter atleast 3 words");
+            }
+            else
+            { 
             Console.WriteLine(arrayofwords[2]);
+            }
             Console.ReadLine();
 
 
