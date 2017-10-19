@@ -21,7 +21,8 @@ namespace FlowControl2
                 Console.WriteLine("This is the main menu");
                 Console.WriteLine("Input a number to choose function");
                 Console.WriteLine("0) Exit");
-                Console.WriteLine("Cinema");
+                Console.WriteLine("1) Cinema");
+                Console.WriteLine("2) Repeat Ten Times");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -30,6 +31,9 @@ namespace FlowControl2
                         break;
                     case "1":
                         AdolescentOrSenior();
+                        break;
+                    case "2":
+                        RepeatTenTimes();
                         break;
                     default:
                         Console.WriteLine("Incorrect input\nTry Again");
@@ -62,7 +66,23 @@ namespace FlowControl2
             Console.ReadLine();
 
         }
-    }
 
+        public static void RepeatTenTimes()
+        {
+            Console.Clear();
+            Console.WriteLine("What do you want repeated?: ");
+            string input = Console.ReadLine();
+            for(int i = 0; i < 10; i++)
+            {
+                Console.WriteLine((i+1)+". "+input+", ");
+            }
+            Console.ReadLine();
+        }
+
+
+
+
+
+    }
 
 }
