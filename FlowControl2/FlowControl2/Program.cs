@@ -30,6 +30,7 @@ namespace FlowControl2
                 Console.WriteLine("Input a number to choose a funcion");
                 Console.WriteLine("1) Cinema");
                 Console.WriteLine("2) Repeat ten times");
+                Console.WriteLine("3) Third Word Finder");
                 Console.WriteLine("0) Exit");
 
                 string input = Console.ReadLine();
@@ -41,6 +42,9 @@ namespace FlowControl2
                         break;
                     case "2":
                         RepeatTenTimes();
+                        break;
+                    case "3":
+                        ThirdWord();
                         break;
                     case "0":
                         keepGoing = true;
@@ -55,9 +59,23 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.WriteLine("What is your age?: ");
-            string input = Console.ReadLine();
-            int age = int.Parse(input);
+
+
+
+            int age = 0;
+            Console.Write("Age:  ");
+
+            // used While loop instead of Do-While loop
+            while (!int.TryParse(Console.ReadLine(), out age))
+            {
+
+                Console.WriteLine("Oops! Wrong Age Please Try Again ");
+
+                Console.Write("Age:  ");
+            }
+
+
+
 
             if (age < 20)
             {
@@ -76,8 +94,21 @@ namespace FlowControl2
 
         public static void RepeatTenTimes()
         {
-            Console.Clear();
+
+
+
+
+
+            Console.WriteLine("");
             Console.WriteLine("What do you want to repeat 10x ?:");
+            Console.WriteLine("");
+
+            Console.Write("Text:  ");
+
+
+
+
+
             string input = Console.ReadLine();
             for (int i = 0; i < 10; i++)
             {
@@ -86,6 +117,23 @@ namespace FlowControl2
             Console.ReadLine();
         }
 
+        public static void ThirdWord()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter a sentence with at least 3 words");
+            string input = Console.ReadLine();
+
+            string[] arrayOfWords = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            if (arrayOfWords.Length < 3)
+            {
+                Console.WriteLine("The sentence need to be at least three words long");
+            }
+            else
+            {
+                Console.WriteLine(arrayOfWords[2]);
+            }
+            Console.ReadLine();
+        }
 
 
     }
