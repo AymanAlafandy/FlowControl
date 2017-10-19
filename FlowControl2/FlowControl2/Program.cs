@@ -23,6 +23,7 @@ namespace FlowControl2
                 Console.WriteLine("Input of number to choose function");
                 Console.WriteLine("1) Cinema");
                 Console.WriteLine("2) RepeatTenTime");
+                Console.WriteLine("3) RepeatTenTime");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                 switch (input)
@@ -32,6 +33,9 @@ namespace FlowControl2
                         break;
                     case "2":
                         AdolescentOrSenior();
+                        break;
+                    case "3":
+                        ThirdWord();
                         break;
                     case "0":
                         keepGoing = false;
@@ -78,7 +82,15 @@ namespace FlowControl2
 
             Console.ReadLine();
         }
-
+        public static void ThirdWord()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter a sentence with at least three words");
+            string input = Console.ReadLine();
+            string[] arrayOfWords = input.Split(' ');
+            Console.WriteLine(arrayOfWords[2]);
+            Console.ReadLine();
+        }
     }
 }
 
