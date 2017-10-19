@@ -46,7 +46,7 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.Write("What is your age?");  //we use console.write to end upp at the same line to input.
+            Console.Write("What is your age?");  //we use console.write to end upp at the same line to input..
             string input = Console.ReadLine();
             int age = int.Parse(input);  
             if (age < 20)
