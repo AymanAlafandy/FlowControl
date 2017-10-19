@@ -22,12 +22,16 @@ namespace FlowControl2
                 Console.WriteLine("This is the main menu.");
                 Console.WriteLine("Input a number to chooce function");
                 Console.WriteLine("1) Cinema");
+                Console.WriteLine("2) Repeat ten times");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
                         AdolescentOrSenior();
+                        break;
+                    case "2":
+                        RepeatTenTimes();
                         break;
                     case "0":
                         keepGoing = false;
@@ -42,15 +46,16 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
+            Console.Clear();
             Console.Write("What is your age?: ");
             string input = Console.ReadLine();
             int age = int.Parse(input);
-            
-            if(age <20)
+
+            if (age < 20)
             {
                 Console.WriteLine("Kid deal: 80kr");
             }
-            else if(age>64)
+            else if (age > 64)
             {
                 Console.WriteLine("Senior Citizen Discount: 90kr");
             }
@@ -60,5 +65,18 @@ namespace FlowControl2
             }
             Console.ReadLine();
         }
+
+        public static void RepeatTenTimes()
+        {
+            Console.Clear();
+            Console.Write("What do you want repeated?: ");
+            string input = Console.ReadLine();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write((i + 1) + ". " + input + ", ");
+            }
+            Console.ReadLine();
+        }
+
     }
 }
