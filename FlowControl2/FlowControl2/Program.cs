@@ -13,7 +13,7 @@ namespace FlowControl2
             MainMenu();
         }
 
-        public static void MainMenu ()
+        public static void MainMenu()
         {
             bool keepGoing = true;
             while (keepGoing)
@@ -24,6 +24,7 @@ namespace FlowControl2
                 Console.WriteLine("0) Exit");
                 Console.WriteLine("1) Cinema");
                 Console.WriteLine("2) Repeat ten times");
+                Console.WriteLine("3) Find the third words");
                 string input = Console.ReadLine();
                 switch (input)
                 {
@@ -36,6 +37,9 @@ namespace FlowControl2
                     case "2":
                         RepeatTenTime();
                         break;
+                    case "3":
+                        ThirdWord();
+                        break;
                     default:
                         Console.WriteLine("Incorrect choice \nPlease input again");
                         Console.ReadKey();
@@ -47,16 +51,28 @@ namespace FlowControl2
 
         public static void AdolescentOrSenior()
         {
-            Console.Clear();
-            Console.Write("What is your age:");
-            string input = Console.ReadLine();
-            int age = int.Parse(input);
+
+            uint age = 0;
+            string input;
+            bool correctAge = true;
+            do
+            {
+                Console.Clear();
+                if (!correctAge)
+                    Console.WriteLine("Please try again");
+                Console.Write("What is your age:");
+                input = Console.ReadLine();
+                correctAge = uint.TryParse(input, out age);
+                if (age < 0 || age > 200)
+                    correctAge = false;
+            }
+            while (!correctAge);
 
             if (age < 20)
             {
                 Console.WriteLine("Kid deals: 80kr");
             }
-            else if(age > 64)
+            else if (age > 64)
             {
                 Console.WriteLine("Senior Citizen Discount: 90kr");
             }
@@ -72,10 +88,31 @@ namespace FlowControl2
             Console.Clear();
             Console.Write("What do you want to repeat:");
             string input = Console.ReadLine();
-            for (int i=0; i<10; i++)
+            for (int i = 0; i < 10; i++)
             {
-                Console.Write((i + 1)+ ". " + input + ", ");
+                Console.Write((i + 1) + ". " + input + ", ");
             }
+            Console.ReadKey();
+        }
+
+        public static void ThirdWord()
+        {
+            int numberOfwords = 3;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("Please enter a sentence with at least three words");
+                string input = Console.ReadLine();
+                string[] arrayOfwords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                numberOfwords = arrayOfwords.Length;
+                if (numberOfwords < 3)                {
+                    
+                    Console.WriteLine("The sentence needs to be at least three words long");
+                }
+                else
+                    Console.WriteLine(arrayOfwords[2]);
+
+            } while (numberOfwords < 3);
             Console.ReadKey();
         }
     }
