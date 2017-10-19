@@ -29,6 +29,7 @@ namespace FlowControl2
                 Console.WriteLine("This is the main menu");
                 Console.WriteLine("Input a number to choose a funcion");
                 Console.WriteLine("1) Cinema");
+                Console.WriteLine("2) Repeat ten times");
                 Console.WriteLine("0) Exit");
 
                 string input = Console.ReadLine();
@@ -37,6 +38,9 @@ namespace FlowControl2
                 {
                     case "1":
                         AdolescentOrSenior();
+                        break;
+                    case "2":
+                        RepeatTenTimes();
                         break;
                     case "0":
                         keepGoing = true;
@@ -48,6 +52,7 @@ namespace FlowControl2
                 }
             }
         }
+
         public static void AdolescentOrSenior()
         {
             Console.WriteLine("What is your age?: ");
@@ -68,7 +73,20 @@ namespace FlowControl2
             }
             Console.ReadLine();
         }
-     
+
+        public static void RepeatTenTimes()
+        {
+            Console.Clear();
+            Console.WriteLine("What do you want to repeat 10x ?:");
+            string input = Console.ReadLine();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write((i + 1) + " . " + input + ", ");
+            }
+            Console.ReadLine();
+        }
+
+
 
     }
 }
