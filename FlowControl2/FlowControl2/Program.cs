@@ -10,6 +10,35 @@ namespace FlowControl2
     {
         static void Main(string[] args)
         {
+            MainMenu();
+        }
+
+        public static void MainMenu()
+        {
+            bool keepGoing = true;
+            while(keepGoing)
+            {
+                Console.Clear();
+                Console.WriteLine("this is the main menu.");
+                Console.WriteLine("Input a number to chooce Function");
+                Console.WriteLine("0) Exit");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "0":
+                        keepGoing = false;
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect input\ntry again");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+        }
+
+        public static void AdolecentOrSenior()
+        {
+
         }
     }
 }
