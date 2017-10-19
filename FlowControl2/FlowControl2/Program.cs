@@ -63,6 +63,7 @@ namespace FlowControl2
             Console.Write("What is your age?: ");
             input = Console.ReadLine();
             correctAge = uint.TryParse(input, out age);
+            
             }
             while(!correctAge);
 
@@ -86,10 +87,11 @@ namespace FlowControl2
             Console.Clear();
             Console.Write("What do you want repeated?: ");
             string input = Console.ReadLine();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 Console.Write((i+1) + ". " + input + ", ");
             }
+            Console.Write("10. " + input);
             Console.ReadLine();
         }
 
@@ -98,7 +100,7 @@ namespace FlowControl2
             Console.Clear();
             Console.WriteLine("Please enter a sentance with at least 3 words");
             string input = Console.ReadLine();
-            string[] arrayOfWords = input.Split(' ');
+            string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (arrayOfWords.Length < 3)
             {
                 Console.WriteLine("the sentence need to be at least 3 words long");
