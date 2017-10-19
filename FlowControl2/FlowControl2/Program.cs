@@ -93,31 +93,52 @@ namespace FlowControl2
         public static void RepeatItTenTimes()
         {
             Console.Clear();
-            Console.WriteLine("What do you want to repeated?: ");
-            string input = Console.ReadLine();
-            for (int i = 0; i < 9; i++)
+            string input;
+            do
             {
-                Console.Write((i +1 ) + "." + input+", ");
-            }
+                Console.Write("What do you want repeated?: ");
+                input = Console.ReadLine().Trim();
+                if (input.Length > 0)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        Console.Write((i + 1) + ". " + input + ", ");
+                    }
+                    Console.Write("10. " + input);
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("You must want to repeat something..\n");
+                }
+            } while (input.Length < 1);
+
             Console.ReadLine();
         }
+
         public static void ThirdWord()
         {
             Console.Clear();
-            Console.WriteLine("Please enter a sentence with at least three words. ");
-            string input = Console.ReadLine();
-            string[] arrayOfWords = input.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries); //It split the inside of the '' here we have a WhiteSpace
-            if (arrayOfWords.Length > 2)  // efter split every word become a string by it self
+            bool longEnough = true;
+            do
             {
-                Console.WriteLine("The sentence needs to be at leas three words");
-            }
-            else
-            {
-                Console.WriteLine(arrayOfWords[2]);
-            }
+                Console.WriteLine("Please enter a sentence with at least three words");
+                string input = Console.ReadLine();
 
-            
-            Console.ReadLine();
+                string[] arrayOfWords = input.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                longEnough = (arrayOfWords.Length > 2);
+                if (!longEnough)
+                {
+                    Console.Clear();
+                    Console.WriteLine("The sentence needs to be at least three words long\n");
+                }
+                else
+                {
+                    Console.Write("The third word is: ");
+                    Console.WriteLine(arrayOfWords[2]);
+                }
+                Console.ReadLine();
+            } while (!longEnough);
         }
     }
 }
