@@ -16,15 +16,18 @@ namespace FlowControl2
                 Console.Clear();
                 Console.WriteLine("This is the main menu.");
                 Console.WriteLine("Input number to choose function");
+                Console.WriteLine(");
                 Console.WriteLine("0) Exit");
                 string input = Console.ReadLine();
                                 switch (input)
                                     {
-                         case "1":
+                                 case "1":
                         Adolescentorsenior();
                         break;
-                   
-                                     case "0":
+                                 case "2":
+                        Repeattentimes();
+                        break;
+                                 case "0":
                                      keepGoing = false;
                                      break;
                                      default:
@@ -37,6 +40,7 @@ namespace FlowControl2
         }
         public static void Adolescentorsenior()
         {
+            Console.Clear();
             Console.Write("What is your age");
             string input = Console.ReadLine();
             int age = int.Parse(input);
@@ -55,6 +59,23 @@ namespace FlowControl2
             }
             Console.ReadLine();
         }
-      
+
+        public static void Repeattentimes()
+        {
+            Console.WriteLine("What do you want repeated");
+            string input = Console.ReadLine();
+
+            for (int i = 0; i <10; i++)
+            {
+
+                Console.Write((i + 1) + ". " + input + ",");
+
+            }
+
+            Console.ReadLine();
+
+
+
+        }
     }
 }
