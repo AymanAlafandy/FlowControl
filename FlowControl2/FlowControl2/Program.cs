@@ -22,6 +22,7 @@ namespace FlowControl2
                 Console.WriteLine("Input a number to choose function");
                 Console.WriteLine("(1)-> Cinema");
                 Console.WriteLine("(2)-> Repeat the word");
+                Console.WriteLine("(3)-> Split the word");
                 Console.WriteLine("(0)-> exit");
                 string input = Console.ReadLine();
                 switch (input)
@@ -31,6 +32,9 @@ namespace FlowControl2
                         break;
                     case "2":
                         RepeatTentimes();
+                        break;
+                    case "3":
+                        Thirdword();
                         break;
                     case "0":
                         keepgoing = false;
@@ -72,5 +76,19 @@ namespace FlowControl2
             Console.ReadLine();
 
         }
+        public static void Thirdword()
+        {
+            Console.Clear();
+            Console.WriteLine("Please enter a sentence which contain 3 words:");
+            string input = Console.ReadLine();
+            string[] arrayofwords = input.Split(' ');
+            Console.WriteLine(arrayofwords[2]);
+            Console.ReadLine();
+
+        }
+
+
+
+
     }
 }
