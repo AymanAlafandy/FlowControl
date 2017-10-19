@@ -54,7 +54,8 @@ namespace FlowControl2
             Console.Clear();
             Console.Write("What is your age?: ");
             string input = Console.ReadLine();
-            int age = int.Parse(input);
+            int age = 0;
+            int.TryParse(input, out age);
             if (age < 20)
             {
                 Console.WriteLine("Kid deal: 80kr");
@@ -88,10 +89,17 @@ namespace FlowControl2
         {
             Console.Clear();
             Console.WriteLine("Please enter a sentence with at least three words");
-            string input = Console.ReadLine();
+            string input = Console.ReadLine();            
             string[] arrayOfWords = input.Split(' ');
-            Console.WriteLine(arrayOfWords[2]);
-            Console.ReadLine();
+            if (arrayOfWords.Length < 3)
+            {
+                Console.WriteLine("The sentence needs to be at least three words long");
+            }
+            else
+            {
+                Console.WriteLine(arrayOfWords[2]);
+                Console.ReadLine();
+            }
         }
     }
 
