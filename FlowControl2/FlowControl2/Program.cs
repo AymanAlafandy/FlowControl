@@ -32,7 +32,7 @@ namespace FlowControl2
                         AdolescentOrSenior();
                         break;
                     case "2":
-                        AdolescentOrSenior();
+                        RepeatTenTime();
                         break;
                     case "3":
                         ThirdWord();
@@ -52,7 +52,9 @@ namespace FlowControl2
         {
             Console.Write("What is your age?: ");
             string input = Console.ReadLine();
-            int age = int.Parse(input);
+            int age = 0;
+            int.TryParse(input, out age); // If user type an age in character 
+            
 
             if (age < 20)
             {
